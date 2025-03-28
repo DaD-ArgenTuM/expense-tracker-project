@@ -9,12 +9,24 @@
 <body>
     <div class="container">
         <h1>Expense List</h1>
+
+        <form method="get" action="/expenses">
+            <label for="category">Filter by Category:</label>
+            <select name="category" onchange="this.form.submit()">
+                <option value="All">All</option>
+                {% for category in categories %}
+                <option value="{{ category }}" {% if selected_category == category %}selected{% endif %}>{{ category }}</option>
+                {% endfor %}
+            </select>
+        </form>
+
         <table>
             <tr>
                 <th>Amount</th>
                 <th>Category</th>
                 <th>Date</th>
                 <th>Description</th>
+                <th>Actions</th>
             </tr>
             {% for exp in expenses %}
             <tr>
@@ -22,9 +34,16 @@
                 <td>{{ exp.category }}</td>
                 <td>{{ exp.date }}</td>
                 <td>{{ exp.description }}</td>
+                <td>
+                    <form action="/delete/{{ exp.id }}" method="post" style="display:inline;">
+                        <button type="submit" class="delete-btn">Remove</button>
+                    </form>
+                    <a href="/edit/{{ exp.id }}" class="edit-btn">Edit</a>
+                </td>
             </tr>
             {% endfor %}
         </table>
+
         <h2>Total Expenses: {{ total }}</h2>
         <a href="/" class="btn">Add More Expenses</a>
     </div>

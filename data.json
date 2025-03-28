@@ -1,0 +1,30 @@
+[
+    {
+        "id": "47ee4a21482bac60",
+        "amount": 500.0,
+        "category": "Food",
+        "date": "2025-03-26",
+        "description": "Vegetables"
+    },
+    {
+        "id": "f152a14b51baf08b",
+        "amount": 600.0,
+        "category": "Stationary",
+        "date": "2025-03-26",
+        "description": "Pens, Journal, Book."
+    },
+    {
+        "id": "34a93874e555f81c",
+        "amount": 500.0,
+        "category": "Household Expenses",
+        "date": "2025-03-26",
+        "description": "Vegetables"
+    },
+    {
+        "id": "150830c39b069b0e",
+        "amount": 500.0,
+        "category": "Food",
+        "date": "2025-03-26",
+        "description": "cake"
+    }
+]

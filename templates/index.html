@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
+    <title>Add Expense</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Expense Tracker</h1>
+        <h1>Add New Expense</h1>
         <form action="/add" method="post">
             <input type="number" name="amount" placeholder="Amount" required>
-            <input type="text" name="category" placeholder="Category" required>
+            
+            <select name="category" required>
+                {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+            
             <input type="date" name="date" required>
             <input type="text" name="description" placeholder="Description" required>
             <button type="submit">Add Expense</button>
